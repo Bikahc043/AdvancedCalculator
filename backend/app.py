@@ -13,8 +13,8 @@ def home():
 def calculate():
     data = request.get_json()
     operation = data.get('operation')
-    a = data.get('a')  # First input
-    b = data.get('b')  # Second input (if applicable)
+    a = data.get('a')  
+    b = data.get('b')  
 
     try:
         # Basic Arithmetic Operations
@@ -29,8 +29,8 @@ def calculate():
 
         # Trigonometric Operations
         elif operation == "sin":
-            angle = (a * pi) / 180  # Convert degrees to radians
-            result = latex(simplify(sin(angle)))  # Simplify and return as LaTeX
+            angle = (a * pi) / 180  
+            result = latex(simplify(sin(angle)))  
         elif operation == "cos":
             angle = (a * pi) / 180
             result = latex(simplify(cos(angle)))
