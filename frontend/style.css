@@ -1,48 +1,55 @@
-html, body {
-    height: 100%; 
-    margin: 0; 
-}
-
+/* This will apply to the entire body of the page */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('pen-notepad-calculator.jpg');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+    margin: 0;
+    height: 100vh;  
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    background-image: url('pen-notepad-calculator.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    background-attachment: fixed;  
 }
 
 
-h1 {
-    color: #000000;
+.container {
+    width: 100%;
+    max-width: 500px;  
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 10px;
 }
+
 
 form {
-    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 input, select, button {
-    margin: 5px;
     padding: 10px;
     font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
 
 p#result {
     font-weight: bold;
     margin-top: 20px;
-}
-#b {
-    transition: all 0.3s ease;
-}
-
-form {
-    margin: 20px auto;
-    text-align: center;
-}
-
-input, select, button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
 }
