@@ -1,76 +1,43 @@
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
-    height: 100vh;  /* Full height of the viewport */
-    display: flex;
-    justify-content: center;  /* Centers content horizontally */
-    align-items: center;      /* Centers content vertically */
-    background-image: url('pen-notepad-calculator.jpg');  /* Replace with your actual image URL */
-    background-size: cover;   /* Ensures the background covers the entire page */
-    background-position: center;  /* Keeps the background centered */
-    background-attachment: fixed;  /* Makes the background fixed during scrolling */
-}
+    justify-content: center;  
+    background-image: url('pen-notepad-calculator.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
 
-/* Ensures the container is not too wide and is centered */
-.container {
-    width: 100%;
-    max-width: 600px;  /* Adjust this to fit your needs */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Optional: adds a slight background to make the content readable */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better contrast */
-    text-align: left; /* Aligns the content to the left inside the container */
-}
 
-/* Aligns the title at the top */
 h1 {
-    margin-top: 0;  /* Ensures the title is at the very top of the container */
-    text-align: center; /* Centers the title */
-    font-size: 2rem;  /* Adjust font size as needed */
-    color: #4CAF50;   /* Color for the title */
+    color: #000000;
 }
 
-/* Style the form elements */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 input, select, button {
+    margin: 5px;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
 }
 
-/* Specific alignment for the form and result */
-#input-fields {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;  /* Aligns input fields to the left */
-    margin-bottom: 20px;
-}
-
-select, button {
-    align-self: flex-start;  /* Aligns the select and button elements to the left */
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    border: none;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Styling for the result text */
 p#result {
     font-weight: bold;
     margin-top: 20px;
+}
+#b {
+    transition: all 0.3s ease;
+}
+
+form {
+    margin: 20px auto;
+    text-align: center;
+}
+
+input, select, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
 }
