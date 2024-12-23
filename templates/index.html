@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Advanced Calculator</h1>
+        <p>Enter your expression. Example: <strong>sin(45), cos(30), tan(60), log(10), 2+3</strong></p>
+        <form method="POST">
+            <input type="text" name="expression" placeholder="Enter expression" value="{{ expression or '' }}">
+            <button type="submit">Calculate</button>
+        </form>
+        <h2>Result: {{ result }}</h2>
+    </div>
+</body>
+</html>
