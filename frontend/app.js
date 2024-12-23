@@ -4,18 +4,18 @@ const bInput = document.getElementById('b');
 const calculatorForm = document.getElementById('calculator');
 const resultDisplay = document.getElementById('result');
 
-// Update placeholder and visibility based on selected operation
+
 operationSelect.addEventListener('change', () => {
     const selectedOperation = operationSelect.value;
 
     if (['sin', 'cos', 'tan'].includes(selectedOperation)) {
-        bInput.style.display = 'none'; // Hide second input
-        bInput.value = ''; // Clear any existing value
-        aInput.placeholder = 'Enter degree'; // Update placeholder
+        bInput.style.display = 'none';
+        bInput.value = ''; 
+        aInput.placeholder = 'Enter degree'; 
     } else {
-        bInput.style.display = ''; // Show second input for arithmetic operations
-        aInput.placeholder = 'Enter the first number'; // Default placeholder
-        bInput.placeholder = 'Enter the second number'; // Placeholder for second input
+        bInput.style.display = ''; 
+        aInput.placeholder = 'Enter the first number'; 
+        bInput.placeholder = 'Enter the second number';
     }
 });
 
@@ -25,7 +25,7 @@ calculatorForm.addEventListener('submit', async function (e) {
 
     const a = parseFloat(aInput.value);
     const bInputValue = bInput.value;
-    const b = bInputValue ? parseFloat(bInputValue) : null; // Use null if b is not provided
+    const b = bInputValue ? parseFloat(bInputValue) : null; 
     const operation = operationSelect.value;
 
     // Input validation for arithmetic and trigonometric operations
