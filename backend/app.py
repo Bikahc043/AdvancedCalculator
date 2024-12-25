@@ -13,35 +13,40 @@ def home():
 def calculate():
     data = request.get_json()
     operation = data.get('operation')
-    a = data.get('a')  
-    b = data.get('b')  
+    numbers = data.get('numbers')  # List of input numbers
 
     try:
         # Basic Arithmetic Operations
         if operation == "add":
-            result = a + b
+            result = sum(numbers)
         elif operation == "subtract":
-            result = a - b
+            result = numbers[0] - sum(numbers[1:])
         elif operation == "multiply":
-            result = a * b
+            result = 1
+            for num in numbers:
+                result *= num
         elif operation == "divide":
-            result = a / b if b != 0 else "Infinity"
+            result = numbers[0]
+            for num in numbers[1:]:
+                if num == 0:
+                    return jsonify({"error": "Cannot divide by zero"}), 400
+                result /= num
 
         # Trigonometric Operations
         elif operation == "sin":
-            angle = (a * pi) / 180  
-            result = latex(simplify(sin(angle)))  
+            angle = (numbers[0] * pi) / 180  # Convert degrees to radians
+            result = latex(simplify(sin(angle)))
         elif operation == "cos":
-            angle = (a * pi) / 180
+            angle = (numbers[0] * pi) / 180
             result = latex(simplify(cos(angle)))
         elif operation == "tan":
-            angle = (a * pi) / 180
+            angle = (numbers[0] * pi) / 180
             result = latex(simplify(tan(angle)))
 
         # Unsupported operation
         else:
             return jsonify({"error": "Unsupported operation"}), 400
-        
+
         return jsonify({"result": result})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
