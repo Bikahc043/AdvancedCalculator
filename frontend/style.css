@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     justify-content: center;
-    background-image: url('images/pen-notepad-calculator.jpg'); /* Path to your image */
+    background-image: url('pen-notepad-calculator.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
