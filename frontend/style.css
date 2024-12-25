@@ -1,13 +1,16 @@
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    justify-content: center;
-    background-image: url('images/pen-notepad-calculator.jpg'); /* Path to your image */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    height: 100vh;
+    margin: 20px;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+form {
+    margin: 20px auto;
 }
 
 .container {

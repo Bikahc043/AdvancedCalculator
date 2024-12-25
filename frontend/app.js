@@ -2,50 +2,19 @@ const operationSelect = document.getElementById('operation');
 const inputFieldsContainer = document.getElementById('input-fields');
 const calculatorForm = document.getElementById('calculator');
 const resultDisplay = document.getElementById('result');
-const addInputButton = document.getElementById('add-input');
-const removeInputButton = document.getElementById('remove-input');
 
-// Function to reset the input fields
-function resetInputs() {
-    inputFieldsContainer.innerHTML = ''; // Clear all inputs
-    const newInput = document.createElement('input'); // Create one default input
-    newInput.type = 'number';
-    newInput.className = 'number-input';
-    newInput.placeholder = 'Enter a number';
-    inputFieldsContainer.appendChild(newInput);
-}
-
-// Event listener for operation selection
+// Update placeholder and visibility based on selected operation
 operationSelect.addEventListener('change', () => {
     const selectedOperation = operationSelect.value;
 
     if (['sin', 'cos', 'tan'].includes(selectedOperation)) {
-        // If a trigonometric function is selected
-        resetInputs(); // Only one input field
-        addInputButton.style.display = 'none'; // Hide Add Input button
-        removeInputButton.style.display = 'none'; // Hide Remove Input button
+        bInput.style.display = 'none'; // Hide second input
+        bInput.value = ''; // Clear any existing value
+        aInput.placeholder = 'Enter degree'; // Update placeholder
     } else {
-        // If an arithmetic function is selected
-        resetInputs(); // Reset to one input field initially
-        addInputButton.style.display = 'inline-block'; // Show Add Input button
-        removeInputButton.style.display = 'inline-block'; // Show Remove Input button
-    }
-});
-
-// Add a new input field
-addInputButton.addEventListener('click', () => {
-    const newInput = document.createElement('input');
-    newInput.type = 'number';
-    newInput.className = 'number-input';
-    newInput.placeholder = 'Enter a number';
-    inputFieldsContainer.appendChild(newInput);
-});
-
-// Remove the last input field
-removeInputButton.addEventListener('click', () => {
-    const inputs = document.querySelectorAll('.number-input');
-    if (inputs.length > 1) {
-        inputFieldsContainer.removeChild(inputs[inputs.length - 1]);
+        bInput.style.display = ''; // Show second input for arithmetic operations
+        aInput.placeholder = 'Enter the first number'; // Default placeholder
+        bInput.placeholder = 'Enter the second number'; // Placeholder for second input
     }
 });
 
@@ -53,9 +22,9 @@ removeInputButton.addEventListener('click', () => {
 calculatorForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Collect all input values
-    const inputs = document.querySelectorAll('.number-input');
-    const numbers = Array.from(inputs).map(input => parseFloat(input.value)).filter(val => !isNaN(val));
+    const a = parseFloat(aInput.value);
+    const bInputValue = bInput.value;
+    const b = bInputValue ? parseFloat(bInputValue) : null; // Use null if b is not provided
     const operation = operationSelect.value;
 
     // Validate inputs
@@ -67,7 +36,6 @@ calculatorForm.addEventListener('submit', async function (e) {
     // Prepare data for API
     const data = { operation: operation, numbers: numbers };
 
-    // Send data to the backend
     const response = await fetch('http://127.0.0.1:5000/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
