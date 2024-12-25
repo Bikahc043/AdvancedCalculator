@@ -68,7 +68,7 @@ calculatorForm.addEventListener('submit', async function (e) {
     const data = { operation: operation, numbers: numbers };
 
     // Send data to the backend
-    const response = await fetch('http://127.0.0.1:5000/calculate', {
+    const response = await fetch('https://advancedcalculator-5.onrender.com/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
