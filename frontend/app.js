@@ -1,6 +1,5 @@
 const operationSelect = document.getElementById('operation');
-const aInput = document.getElementById('a');
-const bInput = document.getElementById('b');
+const inputFieldsContainer = document.getElementById('input-fields');
 const calculatorForm = document.getElementById('calculator');
 const resultDisplay = document.getElementById('result');
 
@@ -28,16 +27,14 @@ calculatorForm.addEventListener('submit', async function (e) {
     const b = bInputValue ? parseFloat(bInputValue) : null; 
     const operation = operationSelect.value;
 
-    // Input validation for arithmetic and trigonometric operations
-    if (
-        isNaN(a) || 
-        (['add', 'subtract', 'multiply', 'divide'].includes(operation) && isNaN(b))
-    ) {
+    // Validate inputs
+    if (numbers.length === 0 || (operation === 'divide' && numbers.includes(0))) {
         resultDisplay.innerText = "Error: Please provide valid inputs.";
         return;
     }
 
-    const data = { operation: operation, a: a, b: b };
+    // Prepare data for API
+    const data = { operation: operation, numbers: numbers };
 
     const response = await fetch('https://advancedcalculator-5.onrender.com/calculate', {
         method: 'POST',
@@ -47,12 +44,13 @@ calculatorForm.addEventListener('submit', async function (e) {
 
     const result = await response.json();
 
+    // Display result
     if (result.result) {
-        resultDisplay.innerHTML = ""; // Clear previous result
+        resultDisplay.innerHTML = "";
         if (['sin', 'cos', 'tan'].includes(operation)) {
-            katex.render(result.result, resultDisplay); // Render LaTeX for trigonometric results
+            katex.render(result.result, resultDisplay);
         } else {
-            resultDisplay.innerText = `Result: ${result.result}`; // Plain text for arithmetic results
+            resultDisplay.innerText = `Result: ${result.result}`;
         }
     } else {
         resultDisplay.innerText = `Error: ${result.error}`;
