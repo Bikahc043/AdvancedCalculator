@@ -31,7 +31,7 @@ Advanced Calculator is a web-based calculator application that performs basic ar
 ### Backend Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/AdvancedCalculator.git
+   git clone https://github.com/<bikashc043>/AdvancedCalculator.git
    cd AdvancedCalculator
 2. Create a virtual environment (optional but recommended):
    ```bash
