@@ -7,27 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-
 </head>
 <body>
-    <h1>Advanced Calculator</h1>
-    <form id="calculator">
-        <div id="input-fields">
-            <input type="number" id="a" placeholder="Enter the first number" required>
-            <input type="number" id="b" placeholder="Enter the second number (optional)">
-        </div>
-        <select id="operation">
-            <option value="add">Add</option>
-            <option value="subtract">Subtract</option>
-            <option value="multiply">Multiply</option>
-            <option value="divide">Divide</option>
-            <option value="sin">Sin</option>
-            <option value="cos">Cos</option>
-            <option value="tan">Tan</option>
-        </select>
-        <button type="submit">Calculate</button>
-    </form>
-    <p id="result"></p>
+    <div class="container">
+        <h1>Advanced Calculator</h1>
+        <form id="calculator">
+            <div id="input-fields">
+                <input type="number" class="number-input" placeholder="Enter a number" required>
+            </div>
+            <button type="button" id="add-input">Add Input</button>
+            <button type="button" id="remove-input">Remove Input</button>
+            <select id="operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+                <option value="sin">Sin</option>
+                <option value="cos">Cos</option>
+                <option value="tan">Tan</option>
+            </select>
+            <button type="submit">Calculate</button>
+        </form>
+        <p id="result"></p>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
